@@ -2,7 +2,7 @@ Start of some tools around pasting MySQL output and getting that in more useful 
 
 ## Usage
 
-Very alpha. Expect the unexpectated, random console logs, etc.
+❗**Very alpha**. Expect the unexpected, random console logs, etc.
 
 ```
 echo '| 1234 |
