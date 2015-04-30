@@ -3,6 +3,7 @@ var pasteTable = require('./index.js');
 
 program
   .version('0.0.0')
+  .option('-t, --tab-delimited', 'Tab delimit data')
   .parse(process.argv);
 
 console.log(program);
@@ -18,5 +19,16 @@ process.stdin.on('readable', function() {
 
 process.stdin.on('end', function() {
   var table = pasteTable.read(data.join("\n"));
-  console.log(table.join(','));
+  var delimiter = ',';
+  if (program.tabDelimited) {
+    delimiter = "\t";
+  }
+
+  if (typeof table[0].hasOwnProperty !== 'undefined' && table[0].length > 1) {
+    table.forEach(function(row) {
+      console.log(row.join(delimiter));
+    });
+    return;
+  }
+  console.log(table.join(delimiter));
 });
