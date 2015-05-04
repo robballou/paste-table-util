@@ -1,4 +1,4 @@
-Start of some tools around pasting MySQL output and getting that in more useful outputs, e.g. a comma-separated-list.
+Start of some tools around pasting MySQL/Text output and getting that in more useful outputs, e.g. a comma-separated-list.
 
 ## Usage
 
