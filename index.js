@@ -1,6 +1,10 @@
 pasteTable = {
+
+  /**
+   * Process the line and figure out what we need to do with it...
+   */
   processLine: function(line) {
-    var lineData = line.split('\|');
+    var lineData = pasteTable.split(line)
     lineData = lineData.filter(function(value) {
       if (value) {
         if (/^\+-+\+$/.test(value)) {
@@ -30,6 +34,28 @@ pasteTable = {
       }
     });
     return linesData;
+  },
+
+  /**
+   * Split the line into chunks based on delimiters
+   */
+  split: function(line) {
+    // check for vertical pipes
+    if (line.indexOf('|') >= 0) {
+      return line.split('\|');
+    }
+
+    // check for tabs
+    if (/\t/.test(line)) {
+      return line.split(/\t/);
+    }
+
+    // check if there are multiple spaces
+    if (/\s{2,}/.test(line)) {
+      return line.split(/\s{2,}/);
+    }
+
+    return [line];
   }
 };
 
