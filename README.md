@@ -28,3 +28,11 @@ line.
 `--column <n>`
 
 Return a specific column specified by a zero-based index (column 1 = 0, etc.).
+Only works on multiple column data and will only return results for columns
+that have that many columns. For example, this data will have 2 results for `column=1`:
+
+```
+123|456
+789|012
+555
+```
