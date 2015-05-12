@@ -1,5 +1,16 @@
 Start of some tools around pasting MySQL/Text output and getting that in more useful outputs, e.g. a comma-separated-list.
 
+## Installation
+
+Currently only via git:
+
+```
+git clone git@github.com:robballou/paste-table.git
+pushd paste-table
+npm install
+popd
+```
+
 ## Usage
 
 ❗**Very alpha**. Expect the unexpected, random console logs, etc.
