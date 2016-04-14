@@ -1,3 +1,5 @@
+var csvparse = require('csv-parse');
+
 pasteTable = {
 
   /**
@@ -7,7 +9,7 @@ pasteTable = {
     var lineData = pasteTable.split(line)
     lineData = lineData.filter(function(value) {
       if (value) {
-        if (/^\+-+\+$/.test(value)) {
+        if (/^\+[\-\+]+\+$/.test(value)) {
           return false;
         }
         return true;
@@ -53,6 +55,11 @@ pasteTable = {
     // check if there are multiple spaces
     if (/\s{2,}/.test(line)) {
       return line.split(/\s{2,}/);
+    }
+
+    // check if there are commas
+    if (/,/.test(line)) {
+      return csvparse(line, {});
     }
 
     return [line];

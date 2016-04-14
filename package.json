@@ -15,6 +15,7 @@
     "paste-table": "./bin.js"
   },
   "dependencies": {
-    "commander": "^2.8.1"
+    "commander": "^2.8.1",
+    "csv-parse": "^0.1.1"
   }
 }
