@@ -47,3 +47,18 @@ that have that many columns. For example, this data will have 2 results for `col
 789|012
 555
 ```
+
+### list
+
+`-l`  
+`--list`
+
+Used when you are selecting a column this can be used to compress it to a comma
+delimited list. By default, when you're not selecting a column, this is expected
+behavior ... but when you select columns, we keep everything as rows.
+
+```
+123|456
+789|012
+555
+```
