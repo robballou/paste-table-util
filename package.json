@@ -1,6 +1,6 @@
 {
   "name": "paste-table-util",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Utilities for processing DB table output, data files, etc. into other forms like lists",
   "main": "index.js",
   "scripts": {
