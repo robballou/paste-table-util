@@ -2,7 +2,13 @@ Start of some tools around pasting MySQL/Text output and getting that in more us
 
 ## Installation
 
-Currently only via git:
+### NPM
+
+```
+npm install paste-table-util
+```
+
+### Git
 
 ```
 git clone git@github.com:robballou/paste-table-util.git
