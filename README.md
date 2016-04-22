@@ -13,8 +13,6 @@ popd
 
 ## Usage
 
-❗**Very alpha**. Expect the unexpected, random console logs, etc.
-
 ```
 echo '| 1234 |
 | 5678 |' | node bin.js

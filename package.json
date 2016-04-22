@@ -1,7 +1,7 @@
 {
-  "name": "paste-table",
-  "version": "0.0.0",
-  "description": "Utilities for processing db table output into other forms like lists",
+  "name": "paste-table-util",
+  "version": "1.0.0",
+  "description": "Utilities for processing DB table output, data files, etc. into other forms like lists",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
