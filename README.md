@@ -5,8 +5,8 @@ Start of some tools around pasting MySQL/Text output and getting that in more us
 Currently only via git:
 
 ```
-git clone git@github.com:robballou/paste-table.git
-pushd paste-table
+git clone git@github.com:robballou/paste-table-util.git
+pushd paste-table-util
 npm install
 popd
 ```
@@ -21,6 +21,9 @@ echo '| 1234 |
 
 cat some_db_output.txt | node bin.js --tab-delimited
 cat some_db_output.txt | node bin.js --column 0
+
+# on mac: paste & copy the table output
+pbpaste | paste-table | pbcopy
 ```
 
 ## Command line options
