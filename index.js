@@ -1,4 +1,4 @@
-var csvparse = require('csv-parse');
+var csvparse = require('csv-parse/lib/sync');
 var program = require('commander');
 
 pasteTable = {
@@ -55,7 +55,7 @@ pasteTable = {
         if (columnSelected) {
           // numeric column
           if (numericColumn && row.length > program.column) {
-            output.append(row[program.column]);
+            output.push(row[program.column]);
             return;
           }
 
@@ -89,27 +89,41 @@ pasteTable = {
   /**
    * Process the line and figure out what we need to do with it...
    */
-  processLine: function(line) {
-    var lineData = pasteTable.split(line)
-    lineData = lineData.filter(function(value) {
+  processLine: function (line) {
+    // get the line data
+    var lineData = pasteTable.split(line);
+
+    // and filter it
+    lineData = lineData.filter(function (value) {
       if (value) {
+        // filter out mysql table lines
         if (/^\+[\-\+]+\+$/.test(value)) {
           return false;
         }
+
         return true;
       }
+
+      // no value?
       return false;
     });
-    lineData = lineData.map(function(value) {
+
+    // parse the value
+    lineData = lineData.map(function (value) {
       value = value.trim();
       if (/^\d+$/.test(value)) {
         return parseInt(value, 10);
       }
+
       return value;
     });
+
     return lineData;
   },
 
+  /**
+   * Return the CLI program.
+   */
   program: function () {
     return program
       .version('0.0.0')
@@ -118,22 +132,26 @@ pasteTable = {
       .option('-l, --list', 'Return data as a list of values')
   },
 
-  read: function(data) {
-    var lines = data.split('\n'),
-      linesData = [];
-    lines.forEach(function(line, index) {
+  /**
+   * Read the data.
+   */
+  read: function (data) {
+    var lines = data.split('\n');
+    var linesData = [];
+    lines.forEach(function (line, index) {
       var lineData = pasteTable.processLine(line);
       if (lineData && lineData.length > 0) {
         linesData.push(lineData);
       }
     });
+
     return linesData;
   },
 
   /**
    * Split the line into chunks based on delimiters
    */
-  split: function(line) {
+  split: function (line) {
     // check for vertical pipes
     if (line.indexOf('|') >= 0) {
       return line.split('\|');
@@ -151,11 +169,11 @@ pasteTable = {
 
     // check if there are commas
     if (/,/.test(line)) {
-      return csvparse(line, {});
+      return csvparse(line, {})[0];
     }
 
     return [line];
-  }
+  },
 };
 
 module.exports = pasteTable;

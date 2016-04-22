@@ -30,7 +30,9 @@ describe('split', function() {
 
   it('should return multiple items for comma delimited lines', function() {
     var results = pasteTable.split('123,456');
-    console.log(results);
+    results.should.be.an.array;
+    results.should.have.length(2);
+    // console.log(results);
     // results.should.be.an.array;
     // results.should.have.length(2);
     // results[0].should.equal('123 ');
