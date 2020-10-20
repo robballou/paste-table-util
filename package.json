@@ -9,13 +9,14 @@
   "author": "Rob Ballou",
   "license": "ISC",
   "devDependencies": {
-    "mocha": "^2.2.4"
+    "mocha": "^8.2.0",
+    "should": "^13.2.3"
   },
   "bin": {
     "paste-table": "./bin.js"
   },
   "dependencies": {
-    "commander": "^2.8.1",
-    "csv-parse": "^1.0.4"
+    "commander": "^6.1.0",
+    "csv-parse": "^4.12.0"
   }
 }
